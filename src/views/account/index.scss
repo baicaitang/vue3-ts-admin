@@ -1,0 +1,37 @@
+.account{
+    width: 100vw;
+    height: 100vh;
+    background-color: #282828;
+    // align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.form-wrap {
+    // padding-top: 300px;
+    margin: auto;
+    width: 285px;
+    color: #fff;
+    // background-color: rgb(75, 76, 76);
+}
+
+
+
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+}
+
+.submit{
+    margin-top: 20px;
+}
+
+.get-Verification-Code {
+    height: 27px;
+}
+
+.ant-btn.ant-btn-loading:not(.ant-btn-circle):not(.ant-btn-circle-outline):not(.ant-btn-icon-only) {
+    padding-left: 20px;
+}

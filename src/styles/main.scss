@@ -1,0 +1,30 @@
+@import './normalize.scss';
+@import './ant.scss';
+
+// color 
+.color-white{
+    color: #fff;
+}
+
+
+// font-size
+.f-s-12{
+    font-size: 12px;
+}
+
+// text-align
+.text-center{
+    text-align: center;
+}
+
+//滑块验证
+.my-captcha {
+    margin-top: 20px;
+    width: 100%;
+
+}
+
+.nc-container #nc_1_wrapper,
+.nc-container.tb-login #nc_1_wrapper {
+    width: 100% !important;
+}
