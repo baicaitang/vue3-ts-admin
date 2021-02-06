@@ -65,7 +65,15 @@
         </a-form-item>
       </a-form>
 
-      <div class="text-center"></div>
+      <div class="text-center">
+        <router-link tag="a" to="/forget" class="color-white f-s-12"
+          >忘记密码</router-link
+        >
+        |
+        <router-link tag="a" to="/" class="color-white f-s-12"
+          >登录</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -85,7 +93,7 @@ export default defineComponent({
   components: {
     Captcha,
   },
-  setup(props) {
+  setup() {
     /*校验用户名*/
     let checkUserName = async (rule, value, callback) => {
       // console.log(value);

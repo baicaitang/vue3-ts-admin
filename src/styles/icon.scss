@@ -1,0 +1,46 @@
+i[class^=icon]{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+// 图标尺寸
+.icon-size-21{
+    height: 21px;
+    width: 21px;
+}
+// 偏移
+.mb--5{
+    margin-bottom: -5px;
+}
+
+// .icon-aside-home{
+//     // background-image: url("~@/assets/icon/");
+//     background-color: red;
+// }
+
+// .icon-aside-console{
+//     background-color: orange;
+// }
+
+// .icon-aside-informtion{
+//     background-color: rgb(31, 31, 94);
+// }
+// .icon-aside-user {
+//     background-color: rgb(233, 233, 135);
+// }
+// .icon-aside-product {
+//     background-color:green;
+// }
+
+// svg 
+.aside-icon{
+    margin-right: 10px; 
+}
+.header-menu-svg{
+    margin-right: 5px;
+    opacity: .6;
+}
+
+.header-collapsed-svg{
+    font-size: 18px;
+}

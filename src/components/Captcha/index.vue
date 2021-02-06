@@ -70,10 +70,11 @@ export default {
     width: auto !important;
   }
   .nc-container .nc_scale span {
-    height: auto;
+    height: auto !important;
   }
+
   .nc-container .nc_scale .btn_ok {
-    line-height: 32px;
+    line-height: 32px !important;
   }
 }
 </style>

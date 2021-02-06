@@ -1,0 +1,64 @@
+<template>
+  <div class="layout">
+    <a-layout id="components-layout-demo-custom-trigger">
+      <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
+        <LayoutAside :collapsed="collapsed" />
+      </a-layout-sider>
+      <a-layout>
+        <a-layout-header style="background: #fff; padding: 0">
+          <LayoutHeader @collapsed="handleCollapsed" />
+        </a-layout-header>
+        <a-layout-content
+          :style="{
+            margin: '24px 16px',
+            padding: '24px',
+            background: '#fff',
+            minHeight: '280px',
+          }"
+        >
+          <LayoutMain />
+        </a-layout-content>
+      </a-layout>
+    </a-layout>
+  </div>
+</template>
+<script>
+import { reactive, toRefs } from "vue";
+import LayoutAside from "./components/aside/Index.vue";
+import LayoutHeader from "./components/Header.vue";
+import LayoutMain from "./components/Main";
+
+export default {
+  name: "Layout",
+  components: {
+    LayoutAside,
+    LayoutHeader,
+    LayoutMain,
+  },
+  setup() {
+    const data = reactive({
+      selectedKeys: ["1"],
+      collapsed: JSON.parse(localStorage.getItem("collapsed")),
+    });
+
+    // 处理子组件 header
+    const handleCollapsed = (value) => {
+      // console.log(value);
+      const bool = !data.collapsed;
+
+      data.collapsed = bool;
+      // 设置缓存
+      localStorage.setItem("collapsed", bool);
+    };
+    return {
+      ...toRefs(data),
+      handleCollapsed,
+    };
+  },
+};
+</script>
+<style lang="scss">
+.ant-layout.ant-layout-has-sider {
+  height: 100vh;
+}
+</style>

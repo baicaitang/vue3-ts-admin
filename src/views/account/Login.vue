@@ -19,9 +19,10 @@
           <a-button block type="primary" html-type="submit"> 登录 </a-button>
         </a-form-item>
       </a-form>
+      <a-button block type="primary" @click="submit"> test-axios </a-button>
 
       <div class="text-center">
-        <router-link tag="a" to="" class="color-white f-s-12"
+        <router-link tag="a" to="/forget" class="color-white f-s-12"
           >忘记密码</router-link
         >
         |
@@ -33,11 +34,17 @@
   </div>
 </template>
 <script>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, getCurrentInstance } from "vue";
+import { GetCode } from "@/api/account";
+
 import "./captcha.js";
 export default {
   name: "Login",
-  setup(props) {
+  setup() {
+    // ctx 在开发环境可用，生产环境不可用 ,proxyS
+    // const { proxy } = getCurrentInstance();
+    // console.log(proxy);
+
     const formConfig = reactive({
       layout: {
         labelCol: { span: 4 },
@@ -91,7 +98,13 @@ export default {
       });
     });
 
-    return { formConfig };
+    const submit = () => {
+      // proxy.$axios.post("/login");
+
+      GetCode({ id: 123 }).then((res) => {});
+    };
+
+    return { formConfig, submit };
   },
 };
 </script>

@@ -1,5 +1,6 @@
 @import './normalize.scss';
 @import './ant.scss';
+@import './icon.scss';
 
 // color 
 .color-white{
@@ -27,4 +28,12 @@
 .nc-container #nc_1_wrapper,
 .nc-container.tb-login #nc_1_wrapper {
     width: 100% !important;
+}
+
+.nc-container .nc_scale span {
+    height: auto !important;
+}
+
+.nc-container .nc_scale .btn_ok {
+    line-height: 32px !important;
 }

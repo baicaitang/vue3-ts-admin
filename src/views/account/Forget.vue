@@ -32,7 +32,7 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent, onMounted, reactive } from "vue";
+import { defineComponent, reactive } from "vue";
 import Captcha from "../../components/Captcha/index.vue";
 
 export default defineComponent({
@@ -40,8 +40,93 @@ export default defineComponent({
   components: {
     Captcha,
   },
-  setup(props) {
+  setup() {
     const formConfig = reactive({});
+
+    /**
+     * promise 对象理解
+     */
+    const handlePromise = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("handlepromise");
+        }, 1000);
+        // reject("handlepromise no");
+      });
+    };
+
+    const promise_01 = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("promise1");
+        }, 1500);
+        // reject("promise1 no");
+      });
+    };
+
+    const promise_02 = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("promise2");
+        }, 500);
+        // reject("promise2 no");
+      });
+    };
+
+    // handlePromise()
+    //   .then((res) => {
+    //     console.log(res);
+    //     return promise_01();
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     return promise_02();
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    // 成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值
+    // Promise.all([promise_01(), promise_02(), handlePromise()])
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    // 哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态
+    Promise.race([promise_01(), promise_02(), handlePromise()])
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // promise_01()
+    //   .then(
+    //     (res) => {
+    //       console.log("promise1:" + res);
+    //     }
+    //     // (err) => {
+    //     //   console.log("promise:" + err);
+    //     // }
+    //   )
+    //   .catch((err) => {
+    //     console.log("promise1:" + err);
+    //   });
+
+    // promise_02()
+    //   .then((res) => {
+    //     console.log("promise2:" + res);
+    //   })
+    //   .catch((err) => {
+    //     console.log("promise2:" + err);
+    //   });
 
     return { formConfig };
   },
